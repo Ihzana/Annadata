@@ -349,3 +349,67 @@ export const mockIngredientDemand = {
     { month: "Jul", rice: 5000, wheat: 3500, vegetables: 2950, pulses: 2200 }
   ]
 };
+
+// Mock data for waste hotspots across major Indian cities
+export const mockWasteHotspots = {
+  // Delhi waste hotspots
+  delhi: [
+    { id: 1, lat: 28.6139, lng: 77.2090, intensity: 95, area: "Connaught Place", type: "Commercial", dailyWaste: 450, sources: ["Restaurants", "Hotels", "Food Courts"], lastUpdated: "2024-01-15T10:30:00Z" },
+    { id: 2, lat: 28.5355, lng: 77.3910, intensity: 88, area: "Gurgaon Cyber City", type: "Corporate", dailyWaste: 380, sources: ["Office Cafeterias", "Corporate Events"], lastUpdated: "2024-01-15T09:15:00Z" },
+    { id: 3, lat: 28.6507, lng: 77.2334, intensity: 82, area: "Karol Bagh", type: "Commercial", dailyWaste: 320, sources: ["Wedding Halls", "Restaurants"], lastUpdated: "2024-01-15T11:45:00Z" },
+    { id: 4, lat: 28.5494, lng: 77.2501, intensity: 78, area: "Lajpat Nagar", type: "Residential", dailyWaste: 280, sources: ["Households", "Local Markets"], lastUpdated: "2024-01-15T08:20:00Z" },
+    { id: 5, lat: 28.6744, lng: 77.1389, intensity: 75, area: "Rajouri Garden", type: "Mixed", dailyWaste: 260, sources: ["Malls", "Restaurants", "Households"], lastUpdated: "2024-01-15T12:10:00Z" },
+    { id: 6, lat: 28.4595, lng: 77.0266, intensity: 70, area: "Vasant Kunj", type: "Residential", dailyWaste: 220, sources: ["Wedding Venues", "Hotels"], lastUpdated: "2024-01-15T14:30:00Z" },
+    { id: 7, lat: 28.7041, lng: 77.1025, intensity: 65, area: "Rohini", type: "Residential", dailyWaste: 180, sources: ["Banquet Halls", "Local Eateries"], lastUpdated: "2024-01-15T16:00:00Z" },
+    { id: 8, lat: 28.6289, lng: 77.3762, intensity: 60, area: "Noida Sector 18", type: "Commercial", dailyWaste: 150, sources: ["Shopping Malls", "Food Courts"], lastUpdated: "2024-01-15T13:25:00Z" }
+  ],
+  
+  // Mumbai waste hotspots
+  mumbai: [
+    { id: 9, lat: 19.0760, lng: 72.8777, intensity: 92, area: "Mumbai Central", type: "Commercial", dailyWaste: 420, sources: ["Street Food", "Restaurants", "Markets"], lastUpdated: "2024-01-15T10:00:00Z" },
+    { id: 10, lat: 19.0596, lng: 72.8295, intensity: 85, area: "Bandra West", type: "Mixed", dailyWaste: 350, sources: ["Cafes", "Hotels", "Events"], lastUpdated: "2024-01-15T11:30:00Z" },
+    { id: 11, lat: 19.1136, lng: 72.8697, intensity: 80, area: "Andheri East", type: "Corporate", dailyWaste: 300, sources: ["Office Complexes", "Corporate Catering"], lastUpdated: "2024-01-15T09:45:00Z" },
+    { id: 12, lat: 19.0379, lng: 72.8482, intensity: 76, area: "Worli", type: "Residential", dailyWaste: 270, sources: ["High-rise Societies", "Clubs"], lastUpdated: "2024-01-15T15:20:00Z" },
+    { id: 13, lat: 19.0330, lng: 72.8258, intensity: 72, area: "Colaba", type: "Tourism", dailyWaste: 240, sources: ["Hotels", "Tourist Restaurants"], lastUpdated: "2024-01-15T12:40:00Z" },
+    { id: 14, lat: 19.1075, lng: 72.8263, intensity: 68, area: "Malad West", type: "Residential", dailyWaste: 200, sources: ["Wedding Halls", "Community Events"], lastUpdated: "2024-01-15T14:15:00Z" },
+    { id: 15, lat: 19.2183, lng: 72.9781, intensity: 55, area: "Borivali", type: "Suburban", dailyWaste: 130, sources: ["Local Restaurants", "Households"], lastUpdated: "2024-01-15T16:30:00Z" }
+  ],
+  
+  // Bangalore waste hotspots
+  bangalore: [
+    { id: 16, lat: 12.9716, lng: 77.5946, intensity: 90, area: "MG Road", type: "Commercial", dailyWaste: 400, sources: ["Pubs", "Restaurants", "Shopping"], lastUpdated: "2024-01-15T10:20:00Z" },
+    { id: 17, lat: 12.9279, lng: 77.6271, intensity: 84, area: "Koramangala", type: "Mixed", dailyWaste: 340, sources: ["Start-up Offices", "Cafes", "Bakeries"], lastUpdated: "2024-01-15T11:00:00Z" },
+    { id: 18, lat: 12.8546, lng: 77.6211, intensity: 79, area: "Electronic City", type: "Corporate", dailyWaste: 290, sources: ["IT Companies", "Food Courts"], lastUpdated: "2024-01-15T09:30:00Z" },
+    { id: 19, lat: 12.9698, lng: 77.6848, intensity: 74, area: "Indiranagar", type: "Residential", dailyWaste: 250, sources: ["Restaurants", "Households"], lastUpdated: "2024-01-15T13:50:00Z" },
+    { id: 20, lat: 12.9352, lng: 77.6245, intensity: 66, area: "BTM Layout", type: "Residential", dailyWaste: 190, sources: ["Local Eateries", "Community Events"], lastUpdated: "2024-01-15T15:45:00Z" }
+  ]
+};
+
+// Mock data for waste statistics and trends
+export const mockWasteStats = {
+  totalHotspots: 20,
+  avgDailyWaste: 265,
+  topWasteArea: "Connaught Place, Delhi",
+  reductionOpportunity: 45,
+  ngosCovered: 12,
+  cityBreakdown: [
+    { city: "Delhi", hotspots: 8, totalWaste: 2130, coverage: 75 },
+    { city: "Mumbai", hotspots: 7, totalWaste: 1910, coverage: 68 },
+    { city: "Bangalore", hotspots: 5, totalWaste: 1470, coverage: 55 }
+  ],
+  wasteTypes: [
+    { type: "Cooked Food", percentage: 45, amount: 2520 },
+    { type: "Raw Ingredients", percentage: 30, amount: 1680 },
+    { type: "Bakery Items", percentage: 15, amount: 840 },
+    { type: "Dairy & Beverages", percentage: 10, amount: 560 }
+  ],
+  monthlyTrend: [
+    { month: "Jan", waste: 5200, ngoCoverage: 65 },
+    { month: "Feb", waste: 5400, ngoCoverage: 68 },
+    { month: "Mar", waste: 5600, ngoCoverage: 70 },
+    { month: "Apr", waste: 5800, ngoCoverage: 72 },
+    { month: "May", waste: 5500, ngoCoverage: 74 },
+    { month: "Jun", waste: 5300, ngoCoverage: 75 },
+    { month: "Jul", waste: 5510, ngoCoverage: 76 }
+  ]
+};
