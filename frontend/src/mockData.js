@@ -30,6 +30,32 @@ export const mockFoodDonations = [
   },
   {
     id: 3,
+    title: "Wedding Reception Surplus",
+    donor: "Grand Palace Wedding Hall",
+    location: "Vasant Kunj, Delhi",
+    quantity: "500 meal portions",
+    expiryTime: "5 hours",
+    category: "Cooked Food",
+    description: "Complete wedding feast: paneer makhani, dal makhani, biryani, naan, raita, gulab jamun, and salads. High-quality banquet food.",
+    donorPhone: "+91 99999 11111",
+    status: "available",
+    postedAt: "2024-01-15T14:30:00Z"
+  },
+  {
+    id: 4,
+    title: "Hotel Breakfast Surplus",
+    donor: "Taj Palace Hotel",
+    location: "Chanakyapuri, Delhi",
+    quantity: "150 portions",
+    expiryTime: "3 hours",
+    category: "Cooked Food",
+    description: "Continental and Indian breakfast items: paratha, poha, upma, fruit salads, sandwiches, and fresh juice.",
+    donorPhone: "+91 88888 22222",
+    status: "available",
+    postedAt: "2024-01-15T11:45:00Z"
+  },
+  {
+    id: 5,
     title: "Bakery Items",
     donor: "Sunrise Bakery",
     location: "Koramangala, Bangalore",
@@ -42,7 +68,60 @@ export const mockFoodDonations = [
     postedAt: "2024-01-15T06:45:00Z"
   },
   {
-    id: 4,
+    id: 6,
+    title: "Corporate Event Leftover",
+    donor: "Microsoft India Office",
+    location: "Gurgaon, Haryana",
+    quantity: "200 meal boxes",
+    expiryTime: "4 hours",
+    category: "Cooked Food",
+    description: "Lunch boxes from corporate event: vegetable biryani, paneer curry, dal, roti, pickle, and sweet. Packed in disposable containers.",
+    donorPhone: "+91 77777 33333",
+    status: "available",
+    postedAt: "2024-01-15T13:20:00Z"
+  },
+  {
+    id: 7,
+    title: "Restaurant Daily Surplus",
+    donor: "Karim's Restaurant",
+    location: "Chandni Chowk, Delhi",
+    quantity: "80 portions",
+    expiryTime: "2 hours",
+    category: "Cooked Food",
+    description: "Traditional Mughlai cuisine: chicken curry, mutton biryani, kebabs, naan, and rumali roti. Prepared fresh today.",
+    donorPhone: "+91 66666 44444",
+    status: "available",
+    postedAt: "2024-01-15T16:00:00Z"
+  },
+  {
+    id: 8,
+    title: "Wedding Food Leftover",
+    donor: "Sharma Family",
+    location: "Lajpat Nagar, Delhi",
+    quantity: "300 meal portions",
+    expiryTime: "3 hours",
+    category: "Cooked Food",
+    description: "North Indian wedding feast including various curries, rice, and desserts.",
+    donorPhone: "+91 54321 09876",
+    status: "claimed",
+    claimedBy: "Delhi Care Foundation",
+    postedAt: "2024-01-15T12:00:00Z"
+  },
+  {
+    id: 9,
+    title: "Hotel Banquet Surplus",
+    donor: "ITC Maurya Hotel",
+    location: "Sardar Patel Marg, Delhi",
+    quantity: "400 portions",
+    expiryTime: "6 hours",
+    category: "Cooked Food",
+    description: "5-star banquet food: live counter items, continental dishes, Indian curries, desserts, and fresh salads. Premium quality.",
+    donorPhone: "+91 55555 66666",
+    status: "available",
+    postedAt: "2024-01-15T15:15:00Z"
+  },
+  {
+    id: 10,
     title: "Fruit Surplus",
     donor: "Reliance Fresh Store",
     location: "Sector 18, Noida",
@@ -55,18 +134,30 @@ export const mockFoodDonations = [
     postedAt: "2024-01-14T18:20:00Z"
   },
   {
-    id: 5,
-    title: "Wedding Food Leftover",
-    donor: "Sharma Family",
-    location: "Lajpat Nagar, Delhi",
-    quantity: "300 meal portions",
+    id: 11,
+    title: "Dhaba Food Surplus",
+    donor: "Amrik Sukhdev Dhaba",
+    location: "NH-1, Murthal",
+    quantity: "120 portions",
     expiryTime: "3 hours",
     category: "Cooked Food",
-    description: "North Indian wedding feast including various curries, rice, and desserts.",
-    donorPhone: "+91 54321 09876",
-    status: "claimed",
-    claimedBy: "Delhi Care Foundation",
-    postedAt: "2024-01-15T12:00:00Z"
+    description: "Authentic Punjabi dhaba food: makki di roti, sarson da saag, chole bhature, lassi, and fresh pickle.",
+    donorPhone: "+91 44444 77777",
+    status: "available",
+    postedAt: "2024-01-15T17:30:00Z"
+  },
+  {
+    id: 12,
+    title: "Reception Hall Surplus",
+    donor: "Golden Paradise Banquet",
+    location: "Rohini, Delhi",
+    quantity: "350 portions",
+    expiryTime: "4 hours",
+    category: "Cooked Food",
+    description: "Wedding reception surplus: mix veg, paneer butter masala, rajma, jeera rice, butter naan, raita, and sweets.",
+    donorPhone: "+91 33333 88888",
+    status: "available",
+    postedAt: "2024-01-15T18:45:00Z"
   }
 ];
 
