@@ -204,7 +204,8 @@ export const mockUserProfiles = {
     totalClaimed: 234,
     peopleServed: 15600,
     joinedDate: "2019-03-20",
-    verified: true
+    verified: true,
+    areasServed: ["Bandra", "Andheri", "Malad", "Borivali"]
   },
   farmer: {
     name: "Suresh Patel",
