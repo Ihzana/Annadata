@@ -307,3 +307,45 @@ export const mockUserProfiles = {
     verified: true
   }
 };
+
+// Mock data for predicted ingredient demand based on NGO activity
+export const mockIngredientDemand = {
+  weekly: [
+    { ingredient: "Rice", demand: 1250, unit: "kg", trend: "+12%", priority: "high" },
+    { ingredient: "Wheat Flour", demand: 800, unit: "kg", trend: "+8%", priority: "high" },
+    { ingredient: "Onions", demand: 650, unit: "kg", trend: "+15%", priority: "medium" },
+    { ingredient: "Potatoes", demand: 550, unit: "kg", trend: "+5%", priority: "medium" },
+    { ingredient: "Tomatoes", demand: 450, unit: "kg", trend: "+22%", priority: "high" },
+    { ingredient: "Lentils (Dal)", demand: 400, unit: "kg", trend: "+10%", priority: "high" },
+    { ingredient: "Cooking Oil", demand: 300, unit: "liters", trend: "+7%", priority: "medium" },
+    { ingredient: "Sugar", demand: 250, unit: "kg", trend: "-2%", priority: "low" },
+    { ingredient: "Salt", demand: 200, unit: "kg", trend: "+3%", priority: "low" },
+    { ingredient: "Spices", demand: 150, unit: "kg", trend: "+18%", priority: "medium" }
+  ],
+  daily: [
+    { day: "Mon", rice: 180, wheat: 120, onions: 95, potatoes: 80, tomatoes: 65 },
+    { day: "Tue", rice: 190, wheat: 115, onions: 88, potatoes: 75, tomatoes: 70 },
+    { day: "Wed", rice: 175, wheat: 125, onions: 102, potatoes: 85, tomatoes: 60 },
+    { day: "Thu", rice: 200, wheat: 110, onions: 90, potatoes: 78, tomatoes: 68 },
+    { day: "Fri", rice: 185, wheat: 130, onions: 98, potatoes: 82, tomatoes: 72 },
+    { day: "Sat", rice: 195, wheat: 105, onions: 85, potatoes: 90, tomatoes: 58 },
+    { day: "Sun", rice: 175, wheat: 95, onions: 92, potatoes: 75, tomatoes: 62 }
+  ],
+  regional: [
+    { region: "Delhi NCR", totalDemand: 2800, topIngredient: "Rice", growth: "+14%" },
+    { region: "Mumbai", totalDemand: 2400, topIngredient: "Wheat Flour", growth: "+11%" },
+    { region: "Bangalore", totalDemand: 1900, topIngredient: "Rice", growth: "+9%" },
+    { region: "Chennai", totalDemand: 1600, topIngredient: "Rice", growth: "+16%" },
+    { region: "Kolkata", totalDemand: 1500, topIngredient: "Rice", growth: "+8%" },
+    { region: "Hyderabad", totalDemand: 1400, topIngredient: "Rice", growth: "+12%" }
+  ],
+  monthlyTrends: [
+    { month: "Jan", rice: 4200, wheat: 3100, vegetables: 2800, pulses: 1900 },
+    { month: "Feb", rice: 4100, wheat: 3200, vegetables: 2900, pulses: 1950 },
+    { month: "Mar", rice: 4300, wheat: 3050, vegetables: 3100, pulses: 2000 },
+    { month: "Apr", rice: 4450, wheat: 3150, vegetables: 3200, pulses: 2100 },
+    { month: "May", rice: 4600, wheat: 3300, vegetables: 3000, pulses: 2050 },
+    { month: "Jun", rice: 4800, wheat: 3400, vegetables: 2850, pulses: 2150 },
+    { month: "Jul", rice: 5000, wheat: 3500, vegetables: 2950, pulses: 2200 }
+  ]
+};
