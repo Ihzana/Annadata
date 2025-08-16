@@ -3,8 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Badge } from '../components/ui/badge';
 import { Input } from '../components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
+import FarmerDemandDashboard from '../components/FarmerDemandDashboard';
 import { mockMarketPrices, mockUserProfiles } from '../mockData';
-import { Search, TrendingUp, TrendingDown, Minus, BarChart3, MapPin, Clock, Filter, Wheat } from 'lucide-react';
+import { Search, TrendingUp, TrendingDown, Minus, BarChart3, MapPin, Clock, Filter, Wheat, Target, Zap } from 'lucide-react';
 
 const FarmerDashboard = () => {
   const [prices, setPrices] = useState(mockMarketPrices);
@@ -165,152 +167,172 @@ const FarmerDashboard = () => {
         </CardContent>
       </Card>
 
-      {/* Search and Filters */}
-      <Card className="mb-6">
-        <CardContent className="pt-6">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                <Input
-                  placeholder="Search crops or markets..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-            </div>
-            
-            <div className="flex gap-2">
-              <Select value={filterCategory} onValueChange={setFilterCategory}>
-                <SelectTrigger className="w-40">
-                  <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
-                  <SelectItem value="Cereals">Cereals</SelectItem>
-                  <SelectItem value="Vegetables">Vegetables</SelectItem>
-                  <SelectItem value="Cash Crops">Cash Crops</SelectItem>
-                  <SelectItem value="Fruits">Fruits</SelectItem>
-                </SelectContent>
-              </Select>
-              
-              <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-40">
-                  <BarChart3 className="h-4 w-4 mr-2" />
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="crop">Sort by Crop</SelectItem>
-                  <SelectItem value="price-high">Price: High to Low</SelectItem>
-                  <SelectItem value="price-low">Price: Low to High</SelectItem>
-                  <SelectItem value="change">By Price Change</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      {/* Tabs for different views */}
+      <Tabs defaultValue="demand" className="w-full">
+        <TabsList className="grid w-full grid-cols-2 mb-6">
+          <TabsTrigger value="demand" className="flex items-center gap-2">
+            <Target className="h-4 w-4" />
+            Demand Insights
+          </TabsTrigger>
+          <TabsTrigger value="prices" className="flex items-center gap-2">
+            <BarChart3 className="h-4 w-4" />
+            Market Prices
+          </TabsTrigger>
+        </TabsList>
 
-      {/* Market Prices */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-green-800 flex items-center gap-2">
-            <BarChart3 className="h-5 w-5" />
-            Live Market Prices ({filteredAndSortedPrices.length} crops)
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {filteredAndSortedPrices.length === 0 ? (
-              <div className="text-center py-8 text-gray-500">
-                <BarChart3 className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>No price data found matching your criteria.</p>
+        <TabsContent value="demand">
+          <FarmerDemandDashboard />
+        </TabsContent>
+
+        <TabsContent value="prices">
+          {/* Search and Filters */}
+          <Card className="mb-6">
+            <CardContent className="pt-6">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex-1">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                    <Input
+                      placeholder="Search crops or markets..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+                
+                <div className="flex gap-2">
+                  <Select value={filterCategory} onValueChange={setFilterCategory}>
+                    <SelectTrigger className="w-40">
+                      <Filter className="h-4 w-4 mr-2" />
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Categories</SelectItem>
+                      <SelectItem value="Cereals">Cereals</SelectItem>
+                      <SelectItem value="Vegetables">Vegetables</SelectItem>
+                      <SelectItem value="Cash Crops">Cash Crops</SelectItem>
+                      <SelectItem value="Fruits">Fruits</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  
+                  <Select value={sortBy} onValueChange={setSortBy}>
+                    <SelectTrigger className="w-40">
+                      <BarChart3 className="h-4 w-4 mr-2" />
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="crop">Sort by Crop</SelectItem>
+                      <SelectItem value="price-high">Price: High to Low</SelectItem>
+                      <SelectItem value="price-low">Price: Low to High</SelectItem>
+                      <SelectItem value="change">By Price Change</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
-            ) : (
-              filteredAndSortedPrices.map((price) => (
-                <div key={price.id} className="border rounded-lg p-6 hover:shadow-lg transition-all duration-200">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-bold text-xl text-gray-800">{price.crop}</h3>
-                        <Badge className={getCategoryColor(price.category)}>
-                          {price.category}
-                        </Badge>
-                        <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium ${getTrendColor(price.trend, price.change)}`}>
-                          {getTrendIcon(price.trend)}
-                          <span>{price.change}</span>
+            </CardContent>
+          </Card>
+
+          {/* Market Prices */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-green-800 flex items-center gap-2">
+                <BarChart3 className="h-5 w-5" />
+                Live Market Prices ({filteredAndSortedPrices.length} crops)
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {filteredAndSortedPrices.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500">
+                    <BarChart3 className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                    <p>No price data found matching your criteria.</p>
+                  </div>
+                ) : (
+                  filteredAndSortedPrices.map((price) => (
+                    <div key={price.id} className="border rounded-lg p-6 hover:shadow-lg transition-all duration-200">
+                      <div className="flex justify-between items-start mb-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h3 className="font-bold text-xl text-gray-800">{price.crop}</h3>
+                            <Badge className={getCategoryColor(price.category)}>
+                              {price.category}
+                            </Badge>
+                            <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium ${getTrendColor(price.trend, price.change)}`}>
+                              {getTrendIcon(price.trend)}
+                              <span>{price.change}</span>
+                            </div>
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-gray-600 mb-3">
+                            <div>
+                              <span className="font-medium text-gray-800">Current Price:</span>
+                              <p className="text-2xl font-bold text-green-600">
+                                {formatCurrency(price.currentPrice)}
+                                <span className="text-sm font-normal text-gray-500 ml-1">{price.unit}</span>
+                              </p>
+                            </div>
+                            
+                            <div>
+                              <span className="font-medium text-gray-800">Weekly Range:</span>
+                              <p className="text-lg">
+                                <span className="text-red-600">{formatCurrency(price.weeklyLow)}</span>
+                                <span className="mx-2">-</span>
+                                <span className="text-green-600">{formatCurrency(price.weeklyHigh)}</span>
+                              </p>
+                            </div>
+                            
+                            <div>
+                              <span className="font-medium text-gray-800 flex items-center gap-1">
+                                <MapPin className="h-4 w-4" />
+                                Market:
+                              </span>
+                              <p className="font-medium">{price.market}</p>
+                            </div>
+                            
+                            <div>
+                              <span className="font-medium text-gray-800 flex items-center gap-1">
+                                <Clock className="h-4 w-4" />
+                                Updated:
+                              </span>
+                              <p className="font-medium">{formatTime(price.lastUpdated)}</p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-gray-600 mb-3">
-                        <div>
-                          <span className="font-medium text-gray-800">Current Price:</span>
-                          <p className="text-2xl font-bold text-green-600">
-                            {formatCurrency(price.currentPrice)}
-                            <span className="text-sm font-normal text-gray-500 ml-1">{price.unit}</span>
-                          </p>
-                        </div>
-                        
-                        <div>
-                          <span className="font-medium text-gray-800">Weekly Range:</span>
-                          <p className="text-lg">
-                            <span className="text-red-600">{formatCurrency(price.weeklyLow)}</span>
-                            <span className="mx-2">-</span>
-                            <span className="text-green-600">{formatCurrency(price.weeklyHigh)}</span>
-                          </p>
-                        </div>
-                        
-                        <div>
-                          <span className="font-medium text-gray-800 flex items-center gap-1">
-                            <MapPin className="h-4 w-4" />
-                            Market:
-                          </span>
-                          <p className="font-medium">{price.market}</p>
-                        </div>
-                        
-                        <div>
-                          <span className="font-medium text-gray-800 flex items-center gap-1">
-                            <Clock className="h-4 w-4" />
-                            Updated:
-                          </span>
-                          <p className="font-medium">{formatTime(price.lastUpdated)}</p>
+                      {/* Price Analysis */}
+                      <div className="bg-gray-50 rounded-lg p-4 mt-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                          <div className="text-center">
+                            <p className="text-gray-600">vs. Weekly Low</p>
+                            <p className={`font-bold ${price.currentPrice > price.weeklyLow ? 'text-green-600' : 'text-red-600'}`}>
+                              {((price.currentPrice - price.weeklyLow) / price.weeklyLow * 100).toFixed(1)}%
+                            </p>
+                          </div>
+                          <div className="text-center">
+                            <p className="text-gray-600">vs. Weekly High</p>
+                            <p className={`font-bold ${price.currentPrice < price.weeklyHigh ? 'text-red-600' : 'text-green-600'}`}>
+                              {((price.currentPrice - price.weeklyHigh) / price.weeklyHigh * 100).toFixed(1)}%
+                            </p>
+                          </div>
+                          <div className="text-center">
+                            <p className="text-gray-600">Market Position</p>
+                            <p className="font-bold text-blue-600">
+                              {price.currentPrice === price.weeklyHigh ? 'At Peak' : 
+                               price.currentPrice === price.weeklyLow ? 'At Low' : 'Mid-Range'}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  {/* Price Analysis */}
-                  <div className="bg-gray-50 rounded-lg p-4 mt-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                      <div className="text-center">
-                        <p className="text-gray-600">vs. Weekly Low</p>
-                        <p className={`font-bold ${price.currentPrice > price.weeklyLow ? 'text-green-600' : 'text-red-600'}`}>
-                          {((price.currentPrice - price.weeklyLow) / price.weeklyLow * 100).toFixed(1)}%
-                        </p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-gray-600">vs. Weekly High</p>
-                        <p className={`font-bold ${price.currentPrice < price.weeklyHigh ? 'text-red-600' : 'text-green-600'}`}>
-                          {((price.currentPrice - price.weeklyHigh) / price.weeklyHigh * 100).toFixed(1)}%
-                        </p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-gray-600">Market Position</p>
-                        <p className="font-bold text-blue-600">
-                          {price.currentPrice === price.weeklyHigh ? 'At Peak' : 
-                           price.currentPrice === price.weeklyLow ? 'At Low' : 'Mid-Range'}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
-        </CardContent>
-      </Card>
+                  ))
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
